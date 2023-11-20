@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1671.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Quiz Questions with Timer and Keywords&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: Arial, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.keyword-button, .index-button {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 10px; /* Increase margin for better separation */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.index-paragraph {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: blue;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 10px; /* Increase margin for better separation */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Add a margin-top for the multiple-choice answers */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>form {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;div id="quizContainer"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="question1Container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2 id="question1"&gt;Question 1: What is the capital of France?&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="index-paragraph" id="indexParagraph1"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac libero eu ex vehicula pharetra ac eu ligula.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="keyword-button" onclick="toggleKeywords('question1')"&gt;Keywords&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="index-button" onclick="toggleIndex('question1')"&gt;Index&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;form id="quizForm1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;input type="radio" name="answer1" value="a"&gt; A. London</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/label&gt;&lt;br&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;input type="radio" name="answer1" value="b"&gt; B. Berlin</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/label&gt;&lt;br&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;input type="radio" name="answer1" value="c"&gt; C. Paris</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/label&gt;&lt;br&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;input type="radio" name="answer1" value="d"&gt; D. Madrid</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/label&gt;&lt;br&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Add an additional &lt;br&gt; tag for better separation --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/form&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="feedback1"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="question2Container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2 id="question2"&gt;Question 2: What is the largest planet in our solar system?&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="index-paragraph" id="indexParagraph2"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac libero eu ex vehicula pharetra ac eu ligula.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="keyword-button" onclick="toggleKeywords('question2')"&gt;Keywords&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="index-button" onclick="toggleIndex('question2')"&gt;Index&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;form id="quizForm2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;input type="radio" name="answer2" value="a"&gt; A. Earth</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/label&gt;&lt;br&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;input type="radio" name="answer2" value="b"&gt; B. Mars</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/label&gt;&lt;br&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;input type="radio" name="answer2" value="c"&gt; C. Jupiter</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/label&gt;&lt;br&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;input type="radio" name="answer2" value="d"&gt; D. Saturn</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/label&gt;&lt;br&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Add an additional &lt;br&gt; tag for better separation --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/form&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="feedback2"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="button" value="Submit Answers" onclick="checkAnswers()"&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;div id="timer"&gt;Time Remaining: &lt;span id="countdown"&gt;&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1">&lt;div id="scoreDisplay"&gt;&lt;/div&gt;</p>
+<p class="p1">&lt;div id="questionFeedback"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>var timeLeft = 60; // Timer set to 60 seconds</p>
+<p class="p1"><span class="Apple-converted-space">    </span>var timerInterval;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>var colored = false;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>var score = 0; // Declare score globally</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function startTimer() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>timerInterval = setInterval(function() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (timeLeft &gt; 0) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById("countdown").innerHTML = timeLeft + " seconds";</p>
+<p class="p1"><span class="Apple-converted-space">                </span>timeLeft--;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>clearInterval(timerInterval);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById("countdown").innerHTML = "Time's up!";</p>
+<p class="p1"><span class="Apple-converted-space">                </span>displayScore();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>displayQuestionFeedback();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>disableQuiz();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}, 1000);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function checkAnswers() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>clearInterval(timerInterval); // Stop the timer when submitting answers</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>var selectedAnswer1 = document.querySelector('input[name="answer1"]:checked');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>var selectedAnswer2 = document.querySelector('input[name="answer2"]:checked');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>var correctAnswer1 = 'c'; // Correct answer for Question 1</p>
+<p class="p1"><span class="Apple-converted-space">        </span>var correctAnswer2 = 'c'; // Correct answer for Question 2</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (selectedAnswer1 &amp;&amp; selectedAnswer2) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (selectedAnswer1.value === correctAnswer1) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>score++;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (selectedAnswer2.value === correctAnswer2) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>score++;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>displayScore();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>displayQuestionFeedback();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>disableQuiz();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>alert('Please answer all questions before submitting.');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function displayScore() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>var totalQuestions = 2; // Total number of questions</p>
+<p class="p1"><span class="Apple-converted-space">        </span>var userScore = (score / totalQuestions) * 100;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById("scoreDisplay").innerHTML = 'Your Score: ' + userScore.toFixed(2) + '%';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function displayQuestionFeedback() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>displayIndividualQuestionFeedback(1);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>displayIndividualQuestionFeedback(2);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function displayIndividualQuestionFeedback(questionNumber) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>var feedbackDiv = document.getElementById("feedback" + questionNumber);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>feedbackDiv.innerHTML = ""; // Clear previous feedback</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>var questionId = "question" + questionNumber;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>var questionText = document.getElementById(questionId).textContent;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>var form = document.getElementById("quizForm" + questionNumber);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>var selectedAnswer = form.querySelector('input[name="answer' + questionNumber + '"]:checked');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>var correctAnswer = (questionNumber === 1) ? 'c' : ((questionNumber === 2) ? 'c' : ''); // Define correct answers</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>var feedback = document.createElement("p");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>feedback.textContent = "Your answer: " + (selectedAnswer ? selectedAnswer.value : "Not answered");</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (selectedAnswer &amp;&amp; selectedAnswer.value === correctAnswer) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>feedback.style.color = "green";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>feedback.textContent += " (Correct)";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>feedback.style.color = "red";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>feedback.textContent += " (Incorrect)";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>feedbackDiv.appendChild(feedback);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function disableQuiz() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>var forms = document.getElementsByTagName("form");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>for (var i = 0; i &lt; forms.length; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>var form = forms[i];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>var elements = form.elements;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>for (var j = 0; j &lt; elements.length; j++) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>elements[j].disabled = true;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById("countdown").innerHTML = "Quiz submitted!";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function toggleKeywords(questionId) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>var questionElement = document.getElementById(questionId);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>var keywords = (questionId === 'question1') ? ["capital", "France"] : ((questionId === 'question2') ? ["largest", "solar"] : []);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>for (var i = 0; i &lt; keywords.length; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>var keyword = keywords[i];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>var regex = new RegExp("\\b" + keyword + "\\b", "gi");</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (!colored) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>questionElement.innerHTML = questionElement.innerHTML.replace(regex, function(match) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>return '&lt;span style="color: red;"&gt;' + match + '&lt;/span&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>questionElement.innerHTML = questionElement.innerHTML.replace(regex, function(match) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>return '&lt;span style="color: black;"&gt;' + match + '&lt;/span&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>colored = !colored;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function toggleIndex(questionId) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>var indexParagraph = document.getElementById("indexParagraph" + questionId.substr(-1));</p>
+<p class="p1"><span class="Apple-converted-space">        </span>indexParagraph.style.display = (indexParagraph.style.display === 'none') ? 'block' : 'none';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>startTimer(); // Start the timer as soon as the page loads</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
