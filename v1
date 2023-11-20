@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Questions with Timer and Keywords</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .keyword-button, .index-button {
+            margin-top: 10px; /* Increase margin for better separation */
+        }
+
+        .index-paragraph {
+            color: blue;
+            display: none;
+            margin-top: 10px; /* Increase margin for better separation */
+        }
+
+        /* Add a margin-top for the multiple-choice answers */
+        form {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="quizContainer">
+    <div id="question1Container">
+        <h2 id="question1">Question 1: What is the capital of France?</h2>
+        <p class="index-paragraph" id="indexParagraph1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac libero eu ex vehicula pharetra ac eu ligula.</p>
+        <button class="keyword-button" onclick="toggleKeywords('question1')">Keywords</button>
+        <button class="index-button" onclick="toggleIndex('question1')">Index</button>
+        <form id="quizForm1">
+            <label>
+                <input type="radio" name="answer1" value="a"> A. London
+            </label><br>
+
+            <label>
+                <input type="radio" name="answer1" value="b"> B. Berlin
+            </label><br>
+
+            <label>
+                <input type="radio" name="answer1" value="c"> C. Paris
+            </label><br>
+
+            <label>
+                <input type="radio" name="answer1" value="d"> D. Madrid
+            </label><br>
+
+            <!-- Add an additional <br> tag for better separation -->
+            <br>
+        </form>
+        <div id="feedback1"></div>
+    </div>
+
+    <div id="question2Container">
+        <h2 id="question2">Question 2: What is the largest planet in our solar system?</h2>
+        <p class="index-paragraph" id="indexParagraph2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac libero eu ex vehicula pharetra ac eu ligula.</p>
+        <button class="keyword-button" onclick="toggleKeywords('question2')">Keywords</button>
+        <button class="index-button" onclick="toggleIndex('question2')">Index</button>
+        <form id="quizForm2">
+            <label>
+                <input type="radio" name="answer2" value="a"> A. Earth
+            </label><br>
+
+            <label>
+                <input type="radio" name="answer2" value="b"> B. Mars
+            </label><br>
+
+            <label>
+                <input type="radio" name="answer2" value="c"> C. Jupiter
+            </label><br>
+
+            <label>
+                <input type="radio" name="answer2" value="d"> D. Saturn
+            </label><br>
+
+            <!-- Add an additional <br> tag for better separation -->
+            <br>
+        </form>
+        <div id="feedback2"></div>
+    </div>
+
+    <br>
+    <input type="button" value="Submit Answers" onclick="checkAnswers()">
+</div>
+
+<div id="timer">Time Remaining: <span id="countdown"></span></div>
+<div id="scoreDisplay"></div>
+<div id="questionFeedback"></div>
+
+<script>
+    var timeLeft = 60; // Timer set to 60 seconds
+    var timerInterval;
+    var colored = false;
+    var score = 0; // Declare score globally
+
+    function startTimer() {
+        timerInterval = setInterval(function() {
+            if (timeLeft > 0) {
+                document.getElementById("countdown").innerHTML = timeLeft + " seconds";
+                timeLeft--;
+            } else {
+                clearInterval(timerInterval);
+                document.getElementById("countdown").innerHTML = "Time's up!";
+                displayScore();
+                displayQuestionFeedback();
+                disableQuiz();
+            }
+        }, 1000);
+    }
+
+    function checkAnswers() {
+        clearInterval(timerInterval); // Stop the timer when submitting answers
+
+        var selectedAnswer1 = document.querySelector('input[name="answer1"]:checked');
+        var selectedAnswer2 = document.querySelector('input[name="answer2"]:checked');
+
+        var correctAnswer1 = 'c'; // Correct answer for Question 1
+        var correctAnswer2 = 'c'; // Correct answer for Question 2
+
+        if (selectedAnswer1 && selectedAnswer2) {
+            if (selectedAnswer1.value === correctAnswer1) {
+                score++;
+            }
+
+            if (selectedAnswer2.value === correctAnswer2) {
+                score++;
+            }
+
+            displayScore();
+            displayQuestionFeedback();
+            disableQuiz();
+        } else {
+            alert('Please answer all questions before submitting.');
+        }
+    }
+
+    function displayScore() {
+        var totalQuestions = 2; // Total number of questions
+        var userScore = (score / totalQuestions) * 100;
+        document.getElementById("scoreDisplay").innerHTML = 'Your Score: ' + userScore.toFixed(2) + '%';
+    }
+
+    function displayQuestionFeedback() {
+        displayIndividualQuestionFeedback(1);
+        displayIndividualQuestionFeedback(2);
+    }
+
+    function displayIndividualQuestionFeedback(questionNumber) {
+        var feedbackDiv = document.getElementById("feedback" + questionNumber);
+        feedbackDiv.innerHTML = ""; // Clear previous feedback
+
+        var questionId = "question" + questionNumber;
+        var questionText = document.getElementById(questionId).textContent;
+
+        var form = document.getElementById("quizForm" + questionNumber);
+        var selectedAnswer = form.querySelector('input[name="answer' + questionNumber + '"]:checked');
+        var correctAnswer = (questionNumber === 1) ? 'c' : ((questionNumber === 2) ? 'c' : ''); // Define correct answers
+
+        var feedback = document.createElement("p");
+        feedback.textContent = "Your answer: " + (selectedAnswer ? selectedAnswer.value : "Not answered");
+
+        if (selectedAnswer && selectedAnswer.value === correctAnswer) {
+            feedback.style.color = "green";
+            feedback.textContent += " (Correct)";
+        } else {
+            feedback.style.color = "red";
+            feedback.textContent += " (Incorrect)";
+        }
+
+        feedbackDiv.appendChild(feedback);
+    }
+
+    function disableQuiz() {
+        var forms = document.getElementsByTagName("form");
+        for (var i = 0; i < forms.length; i++) {
+            var form = forms[i];
+            var elements = form.elements;
+            for (var j = 0; j < elements.length; j++) {
+                elements[j].disabled = true;
+            }
+        }
+        document.getElementById("countdown").innerHTML = "Quiz submitted!";
+    }
+
+    function toggleKeywords(questionId) {
+        var questionElement = document.getElementById(questionId);
+        var keywords = (questionId === 'question1') ? ["capital", "France"] : ((questionId === 'question2') ? ["largest", "solar"] : []);
+
+        for (var i = 0; i < keywords.length; i++) {
+            var keyword = keywords[i];
+            var regex = new RegExp("\\b" + keyword + "\\b", "gi");
+
+            if (!colored) {
+                questionElement.innerHTML = questionElement.innerHTML.replace(regex, function(match) {
+                    return '<span style="color: red;">' + match + '</span>';
+                });
+            } else {
+                questionElement.innerHTML = questionElement.innerHTML.replace(regex, function(match) {
+                    return '<span style="color: black;">' + match + '</span>';
+                });
+            }
+        }
+
+        colored = !colored;
+    }
+
+    function toggleIndex(questionId) {
+        var indexParagraph = document.getElementById("indexParagraph" + questionId.substr(-1));
+        indexParagraph.style.display = (indexParagraph.style.display === 'none') ? 'block' : 'none';
+    }
+
+    startTimer(); // Start the timer as soon as the page loads
+</script>
+
+</body>
+</html>
